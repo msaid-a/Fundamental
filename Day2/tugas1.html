@@ -1,0 +1,48 @@
+<script>
+let masuk = parseInt(prompt("Jam Berapa Anda Masuk"))
+let waktuMasuk = prompt('1. Pagi(AM) 2.Malem(PM) ')
+let keluar = parseInt(prompt('Jam Berapa Anda Keluar'))
+let waktuKeluar = prompt('1. Pagi(AM) 2.Malem(PM) ')
+
+if (waktuMasuk == '2'){
+    masuk = masuk + 12
+    //alert(masuk)
+}else{
+    masuk = masuk 
+    //alert(masuk)
+}
+if (waktuKeluar == '2'){
+    keluar = keluar + 12
+    //alert(keluar)
+}else{
+    keluar = keluar 
+    //alert(keluar)
+}
+if (waktuMasuk ==1 && waktuKeluar==1){
+    hasil = keluar - masuk
+   // alert(hasil)
+}else if (waktuMasuk==1 && waktuKeluar==2){
+    hasil = keluar - masuk
+    //alert(hasil)
+}else if (waktuMasuk==2 && waktuKeluar==1){
+    hasil = masuk - keluar 
+    //alert(hasil)
+}else if(waktuMasuk==2 && waktuKeluar==2){
+    hasil = keluar - masuk
+    //alert(hasil)
+}
+if (hasil >= 1 && hasil <=3 ){
+    let harga = hasil * 3000
+    alert(harga)
+}else if(hasil > 3 && hasil <= 16 ) {
+    harga = (hasil * 1000) + 9000
+    alert (harga)
+}else if(hasil > 16){
+    harga = 25000
+    alert(harga)
+}else{
+    harga = 25000
+    alert(harga)
+}
+
+</script>

@@ -1,0 +1,117 @@
+<script>
+let check = false
+let hakAkses
+let menuAdmin
+var barang = [['Jeruk', 20000],
+              ['Kiwi',25000] 
+              ['Apel',30000]]
+//let harga = [20000, 25000, 3000]
+let keranjang 
+let hargaKeranjang 
+let qtybarang 
+while (check == false){
+ keranjang = []
+ hargaKeranjang = []
+ qtybarang = []
+
+    hakAkses = prompt('1.Admin \n2.User')
+    
+    if(hakAkses == 1 && hakAkses <=2){ 
+        menuAdmin = prompt("1.Tampilkan Barang\n2.Input Produk\n3.Hapus Produk\n4.Update Produk")
+        if (menuAdmin == 1 && menuAdmin <=4){
+            check = true
+            alert(tampilProduk())
+    }else if (menuAdmin == 2 && menuAdmin <=4){
+            inputProduk(produkBaru=prompt('\nMasukan Nama Barang'),hargaProduk =prompt('Masukan Harga'))
+    }else if(menuAdmin == 3 && menuAdmin <=4){
+    hapusProduk(pilih_produk=prompt(tampilProduk()+"\nPilih Produk"))
+
+    }else if (menuAdmin == 4 && menuAdmin <=4){
+        produk=prompt(tampilProduk()+"\nPilih Produk")
+        hargaBaru=prompt("Masukan Harga Baru")
+        updateHargaProduk( produk,hargaBaru )    
+    }else{
+        alert ("Anda Salah Input")
+    }
+    }else if (hakAkses == 2 && hakAkses <=2){
+        check_belanja = false
+        while (check_belanja == false){
+
+        pilih_barang = prompt(tampilProduk() + "\n Beli Apa ?")
+        belanja(pilih_barang)
+        }
+}else{
+    alert("Anda Salah Input")
+}
+
+//Tampil Barang
+function tampilProduk(){
+        var print = ''
+
+                for ( var i =0 ; i < barang.length ; i++){
+                    print += i+1 + '.' + barang[i][0] + ' Dengan Harga Rp.' + barang[i][1] +'\n'
+                }
+                return print
+            
+        }
+
+//input
+function inputProduk (produkBaru,hargaProduk){
+        barang.push(produkBaru)
+         harga.push(hargaProduk)
+         for (var i = 0; i < barang.length; i++) {
+          print += (i + 1) + '. ' + barang[i] + ' Dengan harga per unit Rp. ' + harga[i] + '\n'
+                        }
+        return tampilProduk()
+    }
+
+
+//hapus    
+function hapusProduk (pilih_produk){
+    barang.splice(pilih_produk-1,1)
+    return tampilProduk()
+}
+//Update Produk
+function updateHargaProduk(produk,hargaBaru){
+    if (produk > 0 && produk <= barang.length){
+        produk -= 1
+        harga[produk] = hargaBaru
+    }else{
+        alert ("Anda Salah Input")
+    }
+return tampilProduk()
+}
+//belannja
+function belanja(pilih_barang){
+        if(pilih_barang > 0 && pilih_barang <= barang.length){
+                var totalSemua =0
+               pilih_barang -= 1
+               keranjang.push(barang[pilih_barang])
+               hargaKeranjang.push(harga[pilih_barang])
+               var qtyb = prompt("Jumlah ")
+               qtybarang.push(qtyb)
+               var konfirmasi_belanja = confirm("Mau Belanja Lagi ?")
+               
+               if (konfirmasi_belanja == true){
+                   check_belanja = false
+                } else{
+                   var printKeranjang =''
+                   for(var i = 0 ; i < keranjang.length ; i++){
+                       printKeranjang += keranjang[i] +' Rp. ' + hargaKeranjang[i] +' x ' + qtybarang[i] + ' = Rp. ' + (hargaKeranjang[i] * qtybarang[i]) +'\n'
+                        totalSemua += hargaKeranjang[i] * qtybarang[i]
+                    }
+                    alert(printKeranjang)
+                    alert ("Total =" + totalSemua )
+                    check_belanja = true
+                }
+            }else{
+                console.log("Anda Salah Input ")
+            }
+        
+        }
+        
+        konfirmasi = confirm("Kembali Lagi ke Menu ?")
+        konfirmasi == true ? check = false : check = true 
+    }
+
+</script>

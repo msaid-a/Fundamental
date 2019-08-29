@@ -1,0 +1,164 @@
+<script>
+//hari ke tahun
+//detik ke jam
+//luas segitiga
+//luas trapesium
+//exit 
+var check = false
+do{
+    var pilihan = prompt ('Apa yang ingin anda lakukan ? \n 1. Convert hari ke tahun \n 2. Convert detik ke jam \n 3. Rumus segitiga \n 4. Rumus Trapesium \n 5. Exit \n')
+   
+if (pilihan == '1'){
+//Convert hari ke Tahun
+    do{
+        var masukanHari = (prompt("Masukan Hari Jumlah hari "))
+        
+      check_hari = false
+      if (masukanHari > 0 ){
+        var tahun = Math.floor(masukanHari / 360 )    
+            tahun_2 = masukanHari % 360   
+        var bulan = Math.floor(tahun_2 / 30)
+            bulan_2= tahun_2 % 30
+        var hari = bulan_2
+    check_hari = true
+      
+      hasilTahun = masukanHari
+
+    var hasilTahun = alert(tahun + "Tahun " + bulan + "Bulan " + hari + "Hari ")
+    var confim_1 = confirm("Mau lagi ?") 
+    if  (confim_1 == true){
+        check = false
+     }else{
+          check = true
+      }
+      }else{
+          alert("Anda Salah Input")
+          check=false
+      }}while(check_hari == false)
+    }
+    // Convert detik ke jam
+    else if (pilihan == '2') {
+
+    do{ 
+    var number = (prompt("Masukan Detik "))
+        if(number > 0){
+     var jam =Math.floor(number/3600)
+         jam_2= number % 3600
+     var menit = Math.floor(jam_2/60)
+         menit_2 = jam_2  % 60
+     var detik = menit_2
+     let hasilJam =   alert (jam + " Jam " + menit + " Menit " + detik + " Detik ")
+        hasilJam = parseInt(hasilJam)
+     check_detik = true
+        var confim_2 = confirm("Mau lagi ?") 
+        if(confim_2 == true){
+         check = false
+     }else{
+          check = true
+      }
+    }else{
+             alert("Anda Salah Input")
+             check_detik = false
+         }
+        } while(check_detik == false)
+    
+    }
+    //Rumus Segitiga 
+    else if (pilihan == '3') {
+
+ 
+check_segitiga = false
+do{  
+var alas = (prompt("Masukan Alas"))
+  if(alas > 0){
+    check_segitiga = true
+    //alas=parseInt(alas)
+  }else{
+      alert ("Anda Salah Input")
+      check_segitiga = false
+  }
+}while (check_segitiga==false)
+check_segitiga1  = false
+do{
+    var tinggi = (prompt("Masukan Tinggi "))
+    if (tinggi > 0){
+        check_segitiga1 = true
+        //tinggi=parseInt(tinggi)
+    } else{
+        alert("Anda Salah Input")
+        check_segitiga1 = false
+    }
+  
+}while(check_segitiga1==false)
+
+  var set = 1/2
+  var rumus_segitiga = (set * alas) * tinggi
+  alert(rumus_segitiga) 
+  var confim_3 = confirm("Mau lagi ?") 
+        if(confim_3 == true){
+         check = false
+     }else{
+          check = true
+      }  
+  
+}
+//Rumus Trapesium
+else if (pilihan == '4'){
+
+    
+    check_sisi1 = false
+    do{
+    var sisi_1 =(prompt("Masukan Sisi 1"))
+    if (sisi_1 > 0 ){
+        check_sisi1 = true
+        sisi_1 = parseInt(sisi_1)
+    }else{
+        alert("Anda Salah Input")
+        check_sisi1 = false
+    }
+  }while (check_sisi1 == false)
+      check_sisi2 = false
+  do{
+      set = 1/2
+  var sisi_2 = (prompt("Masukan Sisi 2"))
+  if (sisi_2 > 0) {
+      check_sisi2 = true
+      sisi_2 = parseInt(sisi_2)
+  }else {
+    alert("Anda Salah Input")
+      check_sisi2 = false
+  }
+  }while(check_sisi2 == false)
+      check_tinggi_trapesium = false
+  do{
+  var tinggi_trapesium = (prompt("Masukan Tinggi"))
+      if(tinggi_trapesium > 0){
+          check_tinggi_trapesium = true
+          tinggi_trapesium = parseInt(tinggi_trapesium)
+      } else {
+        alert("Anda Salah Input")
+          check_tinggi_trapesium = false
+      }
+  } while(check_tinggi_trapesium == false)
+  
+  var rumus_trapesium = set * (sisi_1 + sisi_2) * tinggi_trapesium
+    alert (rumus_trapesium)
+  var confim_4 = confirm("Mau lagi ?") 
+        if(confim_4 == true){
+         check = false
+     }else{
+          check = true
+      }
+  //exit
+    }else if (pilihan == '5'){
+        var yakin = confirm("Yakin ?")
+        if ( yakin == true){
+        check = true
+    }else{
+        check = false
+    }
+ } else{
+     alert ("Anda Salah Input ")
+ }
+}while(check == false)
+</script>

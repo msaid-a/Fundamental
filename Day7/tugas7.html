@@ -1,0 +1,133 @@
+<script>
+    //class
+    class Barang{
+        constructor(nama,harga){
+            this.nama = nama
+            this.harga= harga
+            this.getSummaries = function(){
+                return this.nama +' Dengan harga' + 'Rp. '+this.harga 
+            }
+            this.changeHarga = function(hargaBaru){
+                this.harga = hargaBaru
+            }
+        }
+        
+    }
+    class Keranjang{
+        constructor(namaBarang,hargaBarang,qty){
+            this.namaBarang = namaBarang
+            this.hargaBarang= hargaBarang
+            this.qty = qty
+            this.getSummaries = function(){
+             return this.namaBarang +' Dengan harga' + 'Rp. '+ this.hargaBarang + 'x' + this.qty +'='+ this.hargaBarang * this.qty +'\n'
+             }
+        }
+
+        
+    }
+    let check = false
+    let hakAkses
+    let menuAdmin
+    let barang = [new Barang('Jeruk', 20000),
+    new Barang('Kiwi', 250000),
+    new Barang('Apel', 30000)]
+    
+    
+    while (check == false){
+        var keranjang = []
+        var qtybarang =[]
+        hakAkses = prompt('1.Admin \n2.User')
+        
+        if(hakAkses == 1 && hakAkses <=2){ 
+            menuAdmin = prompt("1.Tampilkan Barang\n2.Input Produk\n3.Hapus Produk\n4.Update Produk")
+            if (menuAdmin == 1 && menuAdmin <=4){
+                check = true
+                alert(tampilProduk())
+            }else if (menuAdmin == 2 && menuAdmin <=4){
+                inputProduk(produkBaru=prompt('\nMasukan Nama Barang'),hargaProduk =prompt('Masukan Harga'))
+            }else if(menuAdmin == 3 && menuAdmin <=4){
+                
+                hapusProduk(pilih_produk=prompt(tampilProduk() + "\nPilih Produk"))
+                
+            }else if (menuAdmin == 4 && menuAdmin <=4){
+                produk=prompt(tampilProduk()+"\nPilih Produk")
+                hargaBaru=prompt("Masukan Harga Baru")
+                updateHargaProduk(produk,hargaBaru )    
+            }else{
+                alert ("Anda Salah Input")
+            }
+        }else if (hakAkses == 2 && hakAkses <=2){
+            check_belanja = false
+            while (check_belanja == false){
+                
+                pilih_barang = prompt(tampilProduk() + "\n Beli Apa ?")
+                belanja(pilih_barang)
+            }
+        }else{
+            alert("Anda Salah Input")
+        }
+        
+        //hapus    
+        function hapusProduk (pilih_produk){
+            barang.splice(pilih_produk-1,1)
+                     return tampilProduk()
+                }
+                //Update Produk
+                function updateHargaProduk(produk,hargaBaru){
+                    if (produk > 0 && produk <= barang.length){
+                        produk-= 1
+                        barang[produk].changeHarga(hargaBaru)
+                    }else{
+                        alert ("Anda Salah Input")
+                    }
+                    return tampilProduk()
+                }
+                //input
+                function inputProduk (produkBaru,hargaProduk){
+                barang.push(new Barang(produkBaru,hargaProduk))
+                return tampilProduk()
+            }
+            //Tampil Barang
+            function tampilProduk(){
+                   var hasil = ''
+                        for(var i = 0 ; i < barang.length ; i++){
+                        hasil +=(i+1) +'.'+ barang[i].getSummaries() + '\n'
+                            }
+                    //alert(hasil)
+                    return hasil
+                    }
+//belannja
+function belanja(pilih_barang,qtybarang){
+    
+        if(pilih_barang > 0 && pilih_barang <= barang.length){
+            var totalSemua =0
+                pilih_barang -= 1
+                console.log(pilih_barang)
+                var qty = prompt("Jumlah ")
+                keranjang.push(new Keranjang(barang[pilih_barang].nama,barang[pilih_barang].harga,qty))
+               var konfirmasi_belanja = confirm("Mau Belanja Lagi ?")
+               if (konfirmasi_belanja == true){
+                   check_belanja = false
+                } else{
+                var hasil =''
+            for(var i = 0 ; i < keranjang.length ; i++){
+                        hasil +=(i+1) +'.'+ keranjang[i].getSummaries() 
+            totalSemua += keranjang[i].hargaBarang * keranjang[i].qty
+                            }         
+                check_belanja = true
+                
+                alert(hasil)
+            alert(totalSemua)
+                
+                }
+            }else{
+                alert("Anda Salah Input ")
+            }
+        
+        }
+        
+        konfirmasi = confirm("Kembali Lagi ke Menu ?")
+        konfirmasi == true ? check = false : check = true 
+    }
+
+</script>

@@ -1,0 +1,90 @@
+<script>
+
+var check_masuk = false
+ do{
+     var masuk = parseInt(prompt("Jam Berapa Anda Masuk"))
+     if(masuk > 0 && masuk < 13){
+         check_masuk = true
+     }else{
+         alert('Anda Salah Input')
+     }
+ } while (check_masuk == false)
+ //
+ var check_waktu_masuk = false
+ while (check_waktu_masuk == false){
+     var waktuMasuk = prompt('1. Pagi(AM) 2.Malem(PM) ')
+     if(waktuMasuk == 1 || waktuMasuk == 2){
+         check_waktu_masuk = true
+     }else{
+         alert('Anda Salah Input')
+     }
+ } 
+
+ var check_keluar = false
+ do{
+     var keluar = parseInt(prompt('Jam Berapa Anda Keluar'))
+     if(keluar > 0 && keluar <13){
+         check_keluar = true
+     }else{
+         alert('Anda Salah Input')
+     }
+ } while (check_keluar == false)
+
+ var check_waktu_keluar = false
+
+ while(check_waktu_keluar == false)  {
+     var waktuKeluar = prompt('1. Pagi(AM) 2.Malem(PM) ')
+     if(waktuKeluar == 1 || waktuKeluar == 2){
+        check_waktu_keluar = true
+     }else{
+         alert('Anda Salah Input')
+     }
+    }
+
+
+if (waktuMasuk == '2'){
+    masuk = masuk + 12
+    //alert(masuk)
+}else{
+    masuk = masuk 
+    //alert(masuk)
+}
+if (waktuKeluar == '2'){
+    keluar = keluar + 12
+    //alert(keluar)
+}else{
+    keluar = keluar 
+    //alert(keluar)
+}
+if (waktuMasuk ==1 && waktuKeluar == 1){
+    hasil = keluar - masuk
+   // alert(hasil)
+}else if (waktuMasuk==1 && waktuKeluar==2){
+    hasil = keluar - masuk
+    //alert(hasil)
+}else if (waktuMasuk==2 && waktuKeluar==1){
+    if (waktuMasuk > waktuKeluar){
+    hasil = harga = 24 + (keluar - masuk) 
+    }else{
+    hasil = masuk - keluar  
+    }
+    //alert(hasil)
+}else if(waktuMasuk==2 && waktuKeluar==2){
+    hasil = keluar - masuk
+    //alert(hasil)
+}
+if (hasil >= 1 && hasil <=3 ){
+    let harga = hasil * 4000
+    alert(harga)
+}else if(hasil > 3 && hasil <= 14 ) {
+    hasil = hasil - 3
+    harga = (hasil * 1000) + 12000
+    alert (harga)
+}else if(hasil > 14){
+    harga = 25000
+    alert(harga)
+}else{
+    harga = 25000
+    alert(harga)
+}
+</script>

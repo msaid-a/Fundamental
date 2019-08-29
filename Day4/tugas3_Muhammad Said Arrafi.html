@@ -1,0 +1,161 @@
+    <script>
+    var check = false
+
+    while(check == false){
+    var pilihan = prompt("Menu \n 1.Segitiga Siku-Siku \n 2.Segitiga Sama Kaki \n 3.Belanja")
+    
+    if(pilihan == '1'){
+        while (check==false){
+            var pilihSiku = prompt("1.Siku atas \n2.Siku bawah")
+            
+            // siku atas
+            if(pilihSiku == 1){
+            while(check == false){
+                var atas = ''
+                var baris = prompt("Masukan Jumlah Baris max 10")
+                if(baris > 0 && baris <=10) {
+    
+                    for (var i = 0 ; i< baris ; i++){
+                        for ( j=0 ; j <= i ; j++){
+                            atas += ' * '
+                        }
+                        atas += '\n'
+                    }
+                    check = true
+                    alert (atas)
+                }else{
+                    alert ("Anda Salah Input")
+                    check = false
+                }
+                
+            }
+        }else if (pilihSiku == '2'){
+    
+            // siku bawah
+            while(check == false){
+                var bawah = ''
+                    baris = prompt("Masukan Jumlah Baris Max 10")
+                    if (baris > 0 && baris <=10){
+    
+                        for ( i = 0 ; i< baris ; i++){
+                            for ( j=0 ; j < baris - i ; j++){
+                                bawah += ' * '
+                            }
+                            bawah += '\n'
+                        }
+                        check = true
+                        alert (bawah)
+                    }else{
+                        alert ("Anda Salah Input")
+                    }   
+            }
+        }else{
+            alert("Anda Salah Input")
+        }
+        }
+}else if (pilihan == '2'){
+    
+    // sama kaki
+    while (check==false){
+
+        var sama = ''
+        var baris=prompt("Masukan Jumlah Baris Max 10");
+        var space = baris-1
+        var ganjil = 1
+        if (baris > 0 && baris <=10){
+    
+            for (var i=0 ;i < baris;i++){
+                for(var j=0; j < (space - i); j++){ 
+                    sama +="   "
+                }
+                for(var k=0; k< ganjil; k++){ 
+                    sama +=" * "
+                }
+                ganjil += 2
+                sama +='\n'
+            }
+            check = true
+            alert(sama)
+        }else{
+            alert("Anda Salah Input")
+        }
+    }
+}
+//Belanja
+else if (pilihan == '3'){
+while (check == false){
+
+var pilihanBelanja=prompt("Pilih Menu \n 1.Ayam 10.000/potong \n 2.Sapi 20.000/potong \n 3.Salmon 25.000/potong ")
+    if(pilihanBelanja > 0 && pilihanBelanja <=3){
+
+        var banyak 
+        var ayam = 10000
+        var sapi = 25000
+        var salmon = 30000
+        var harga 
+    // ayam
+        if(pilihanBelanja == '1'){
+            while(check == false) {
+                banyak=prompt("Berapa Banyak ?")
+                
+                if(banyak > 0 ) {
+                    harga= banyak * ayam
+                    alert(harga) 
+                    check = true
+                }else{
+                    alert ("yang anda masukan salah")
+                }
+            }
+    //sapi           
+        }else if (pilihanBelanja == '2'){
+            while(check == false) {
+                banyak=prompt("Berapa Banyak ?")
+                
+                if(banyak > 0 ) {
+                    harga= banyak * sapi
+                    check = true
+                    alert(harga) 
+                }else{
+                    alert ("yang anda masukan salah")
+                }
+            }
+        }
+    //salmon      
+        else if (pilihanBelanja == '3'){
+            while(check == false) {
+                banyak=prompt("Berapa Banyak ?")
+                
+                if(banyak > 0 ) {
+                    harga= banyak * salmon
+                    check = true
+                    alert(harga) 
+                }else{
+                    alert ("yang anda masukan salah")
+                }
+            }
+        }else{
+            alert("Anda Salah")
+        }
+        
+        
+        check = true
+    }else{
+        alert("Yang anda masukan salah")
+    }
+}
+}else{
+    alert("Anda salah input")
+   // check = false        
+}
+
+var konfirmasi = confirm('Mau Lagi ?')
+if(konfirmasi == true){
+    check = false
+}else{
+    alert("Terimakasih")
+    check = true
+}     
+    }
+
+
+</script>

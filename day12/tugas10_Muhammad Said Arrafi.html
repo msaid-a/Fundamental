@@ -1,0 +1,65 @@
+<script>
+const nb_year =  (populasi,persen,tax,tujuan)=>{
+    var total = populasi
+    persen = persen / 100
+    var i=0
+    while (total <= tujuan){
+        var hasil = total * persen
+        var hasilpopulasi = tax + hasil
+        total = hasilpopulasi + total
+        i++
+    }
+    return i                
+
+}
+console.log ( nb_year(1500, 5, 100, 5000))
+
+//2
+const ticket = (array)=>{
+    let harga = 25
+    let uang = []
+    let hasil
+    //let bayar
+    for ( let i = 0 ; i < array.length ; i++){
+        if (array[i] == 25){
+            uang.push( array[i])
+            
+        }else if (uang.includes(25) && array[i]== 50){
+            kasir = uang.indexOf(25)
+            uang.splice(kasir,1) 
+            hasil = array[i] 
+            uang.push(hasil)        
+        }else if (uang.includes(25)  && uang.includes(50)  && array[i]==100){
+            kasir = uang.indexOf(25)
+            uang.splice(kasir,1)
+            kasir2 = uang.indexOf(50)
+            uang.splice(kasir2)
+            hasil = array[i] 
+            uang.push(hasil)
+        }else{
+            return 'NO'
+        }
+    }
+    return 'YES'
+}
+console.log(ticket([25,25,50]))
+console.log(ticket([25,25,100]))
+console.log(ticket([25, 25, 50, 50, 100])) 
+
+
+//3
+const sama = (baris) =>{
+    let array = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+    let index = 0
+    for ( let i = 0 ; i < baris ; i++){
+        index += i // 1
+    }
+    let total = 0 
+    for(i = index ; i < index + baris ; i++){
+        total += array[i]//3 
+    }
+    return total
+}
+console.log(sama(1))
+console.log(sama(2))
+</script>

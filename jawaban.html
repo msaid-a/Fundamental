@@ -1,0 +1,111 @@
+<script>
+    // ==================== DATA ==============================
+    var product = ['Jeruk' , 'Kiwi' , 'Leci']
+    var harga = [10000 , 20000 , 30000 ]
+    var productCart = []
+    var priceCart = [ ]
+    var qtyCart = []
+    // ====================END DATA ==========================
+    // ==================== FUNCTIONS =========================
+//    var hasil ='1. Jeruk Rp. 10000 \n 2. Kiwi Rp. 20000 \n 3. Leci Rp. 30000'
+    function printData(data){
+        var hasil = ''
+        if(data == 'menu'){
+            var jumlahProduk = product.length
+            for(var i = 0 ; i < jumlahProduk ; i ++){
+                hasil += (i+1) + '. ' + product[i] + ' Rp. ' + harga[i] + '\n'
+            }
+            
+        }else if(data == 'cart'){
+            var jumlahProduk = productCart.length
+            for(var i = 0 ; i < jumlahProduk ; i ++){
+                hasil += (i+1) + '. ' + productCart[i] + ' Rp. ' + priceCart[i] + ' x ' + qtyCart[i] + ' = Rp. ' + (priceCart[i] * qtyCart[i]) +'\n'
+            }
+        }
+        return hasil
+    }
+    function deleteProduct(indexProduct){
+        product.splice(indexProduct , 1)
+    }
+    function TotalHarga(){
+        var total = 0
+        var cartLength = productCart.length
+        for(var i = 0 ; i < cartLength ; i++){
+            total += priceCart[i] * qtyCart[i]
+        }
+        return total
+    }
+    // var arr = [1,2,3,4,1,2,3,42,4,2]
+    // arr.splice(1,1)
+    // console.log(arr)
+    
+    // ==================== END FUNCTIONS ======================
+    do{
+        var loginAs = prompt('Login Sebagai 1. Admin , 2. User')
+        if(loginAs === '1'){
+            do{
+                var menuAdmin = prompt('1. Show Product \n2. Input Product \n3.Delete Product \n4. Update Price')
+                if(menuAdmin === '1'){
+                   alert(printData('menu'))
+                   
+                }else if(menuAdmin === '2'){
+                    var newProduct = prompt('Masukan Nama Product')  // Anggur
+                    var newPrice =prompt('Masukan Harga Untuk ' + newProduct) // 30000
+                    product.push(newProduct)
+                    harga.push(parseInt(newPrice))
+                    var print = 'Product Berhasil Ditambah \n' + printData('menu')
+                    alert(print)
+                   
+                }else if(menuAdmin === '3'){
+                    var productMana = prompt('Product Mana Yang Mau Di Hapus \n' + printData('menu'))
+                    var indexProductMauDihapus = productMana-1
+                    var konfirm = confirm('Yakin ' + product[indexProductMauDihapus] + ' Mau Dihapus?')
+                    if(konfirm == true){
+                        deleteProduct(indexProductMauDihapus)
+                        alert('Product Berhasil Dihapus \n ' + printData('menu'))
+                    }else{
+                        alert('Product Tidak Jadi Dihapus \n ' + printData('menu'))
+                    }
+        
+        
+                }else if( menuAdmin === '4'){
+                    var mauDiupdate = prompt('Pilih Produk Yang Mau di update Harganya \n' + printData('menu'))
+                    var indexMauDiUpdate = mauDiupdate - 1
+                    harga[indexMauDiUpdate] = parseInt(prompt('Update Harga ' +product[indexMauDiUpdate] + ' Menjadi berapa?')) //3000
+                    alert('Harga ' + product[indexMauDiUpdate] + ' Berhasil di Ubah \n' + printData('menu'))
+                }
+                var backToAdmin = confirm('Kembali Ke Menu Admin?')
+    
+            }while(backToAdmin == true)
+        }else if(loginAs === '2'){
+            do{
+                alert('Selamat Datang di Toko Buah')
+                var mauBelanja = prompt('Mau Belanja Apa ?? \n ' + printData('menu')) //1
+                var indexMauBelanja = mauBelanja - 1
+                var qty = prompt('Mau Belanja ' + product[indexMauBelanja] + ' berapa Kg?')
+                // productCart = ['kiwi' , 'jeruk']
+                // qtyCart = [3, 2]
+                var indexCart = productCart.indexOf(product[indexMauBelanja]) //kiwi
+                //indexCart = 0
+                if( indexCart == -1){
+                    productCart.push(product[indexMauBelanja])
+                    priceCart.push(harga[indexMauBelanja])
+                    qtyCart.push(parseInt(qty))
+                }else{
+                    qtyCart[indexCart] += parseInt(qty)
+                }
+                alert('Product Berhasil Ditambah \n' + printData('cart'))
+                var mauBelanjaLagi = confirm('Mau belanja Lagi?')
+            }while(mauBelanjaLagi == true)
+            alert('Anda Harus Membayar Rp . ' + TotalHarga())
+    
+    
+    
+    
+        }else{
+            alert('Salah Input')
+        }
+        
+        var mainMenu = confirm('Kembali Ke Login?')
+    }while(mainMenu == true)    
+</script>

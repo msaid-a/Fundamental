@@ -1,0 +1,115 @@
+<script>
+    let check = false
+    pilihan = prompt('Pilih Salah Satu \n 1.DubString_1 \n 2.DubString_2\n 3.Game Batu Gunting Kertas')
+    while(check == false){
+    if (pilihan == 1 && pilihan <=3){
+    while(check == false){
+        //DupString
+        function dupString(kata){
+        var kataArray= kata.split('')
+        var panjang = kataArray.length
+        var data = [] 
+        for ( var i = 0 ; i < panjang  ; i++ ){
+            for (var j = 0 ; j <= i ; j++){
+                data.push(kata[i])
+                
+                
+            }
+        }
+        check = true
+        alert(data.join(''))
+    }
+    dupString(kata = prompt("Masukan Kata"))
+}
+
+}else if (pilihan == 2 && pilihan <=3){
+    while (check==false){
+
+        //DupString 2.
+        function dupString2(kata){
+            
+            kataArray= kata.split('')
+            panjang = kataArray.length
+            data = [] 
+             
+            for ( var i = 0 ; i < panjang  ; i++ ){
+                for (var j = 0 ; j < i+1 ; j++){
+                    if (j == 0){
+                        data.push('-',kataArray[i].toUpperCase())
+                    }else{
+                        data.push(kataArray[i])
+                        
+                    }
+                    if(i == 0){
+                        data.shift([0])
+                    }
+                    
+                }
+            }
+            check = true
+            alert(data.join(''))
+           }
+           dupString2(kata=prompt("Masukan Kata"))
+    }
+
+    }else if(pilihan == 3 && pilihan <=3){
+
+        while(check == false){
+
+            function batuKertas(pilihan1,pilihan2){
+            
+                if((pilihan1 == 'batu' || pilihan1 == 'Batu') && (pilihan2 == 'kertas' || pilihan2 == 'Kertas')){
+            
+                    alert("Pemain 2 menang")
+                }else if ((pilihan1 == 'batu' || pilihan1 == 'Batu') && (pilihan2 == 'gunting' || ilihan2 == 'Gunting')){
+                    
+                    alert('Pemain 1 menang')
+                }else if ((pilihan1 == 'batu' || pilihan1 =='Batu') && (pilihan2 == 'batu' || pilihan2 =='Batu')){
+            
+                    alert ('Seimbang')
+            
+                }else if ((pilihan1 == 'kertas' || pilihan1 == 'Kertas') && (pilihan2 == 'batu' || pilihan2 =='Batu')){
+                    alert ('Pemain 1 menang')
+                
+                }else if ((pilihan1 == 'kertas' || pilihan1=='Kertas') && (pilihan2 == 'gunting' || pilihan2 =='Gunting')){
+                    
+                    alert('Pemain 2 menang')
+                }else if ((pilihan1 == 'kertas' || pilihan1=='Kertas') && (pilihan2 == 'kertas' || pilihan2 == 'Kertas')){
+            
+                    alert('Seimbang')
+            
+                }else if ((pilihan1 == 'gunting' || pilihan1 == 'Gunting') && (pilihan2 == 'batu' || pilihan2 == 'Batu')){
+                    alert('Pemain 2 menang')
+                
+                }else if ((pilihan1 == 'gunting' || pilihan1 == 'Gunting') && (pilihan2 == 'kertas' || pilihan2 == 'Kertas')){
+                    
+                    alert('Pemain 1 menang')
+                }else if ((pilihan1 == 'gunting' || pilihan1 == 'Gunting') && (pilihan2 == 'gunting' || pilihan2 == 'Gunting')){
+            
+                    alert ('Seimbang')
+            
+                }else{
+                    alert('Anda Salah Input')
+                }
+                var tandingUlang = confirm("Mau Ulang ?")
+                if (tandingUlang == true){
+                    check == false
+                }else{
+                    check == true
+                }
+            
+            } 
+            batuKertas(pilihan1=prompt("Masukan Pilihan 1"),pilihan2=prompt("Masukan Pilihan 2"))
+        }
+    }else{
+        alert("Anda Salah Input")
+    } 
+    var konfirmasi=confirm("Mau Lagi ?")
+    if(konfirmasi == true){
+        check = false
+    }else{
+        alert ("terimakasih")
+        check = true
+}
+}
+</script>

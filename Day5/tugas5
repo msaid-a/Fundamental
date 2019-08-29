@@ -1,0 +1,96 @@
+
+//DupString.
+kata='abcdef'
+kataArray= kata.split('')
+for(a=1;a < kata.length;a++ ){
+    if (kataArray[1].indexOf() <= kataArray.indexOf()){
+
+        kata_2 = kataArray.splice(0+a,0, kataArray[0+a])
+        if (kataArray[2].indexOf() <= kataArray.indexOf()){
+            
+            kata_2 = kataArray.splice(0+a,0, kataArray[0+a])
+            break
+        }
+    }else{
+    }
+}
+console.log(kataArray)
+console.log(kataArray[2].indexOf())
+
+var angka = 'asdsafasf'
+
+console.log(angka > 0)
+
+// function dupString(kata){
+//     kataArray = kata.split('') 
+//     double = kata+kata
+ 
+//     var a = 0
+
+//     for (var i =0 ; i < double.length ; i++){
+        
+//         kata_2 = kataArray.splice(0+a,0, kataArray[0+a])
+//         a+=2
+      
+//     }
+//     console.log(kataArray.join(''))
+// }  
+// dupString('fikri')
+/*
+//DupString Dua
+function dupString2(kata2){
+   var kata2Array= kata2.split('')
+   // kata2_2 = kata2Array.splice(0+,0,kata2Array[0+1].toUpperCase())
+    kata2_2 = kata2Array[0].toUpperCase()
+    kata2_2 = kata2Array.splice(0+1,0,kata2Array[0+1].toUpperCase())
+    kata2_2 = kata2Array.splice(0+3,0,kata2Array[0+3].toUpperCase())
+    kata2_2 = kata2Array.splice(0+4,0,kata2Array[0+4])
+    kata2_2 = kata2Array.splice(0+6,0,kata2Array[0+6].toUpperCase())
+    kata2_2 = kata2Array.splice(0+7,0,kata2Array[0+7])  
+    kata2_2 = kata2Array.splice(0+8,0,kata2Array[0+8])   
+    console.log(kata2Array)
+}
+dupString2('said')
+*/
+
+//game batu kertas
+
+function batuKertas(pilihan1,pilihan2){
+
+    if((pilihan1 == 'batu' || pilihan1 == 'Batu') && (pilihan2 == 'kertas' || pilihan2 == 'Kertas')){
+
+        console.log("Pemain 2 menang")
+    }else if ((pilihan1 == 'batu' || pilihan1 == 'Batu') && (pilihan2 == 'gunting' || ilihan2 == 'Gunting')){
+        
+        console.log('Pemain 1 menang')
+    }else if ((pilihan1 == 'batu' || pilihan1 =='Batu') && (pilihan2 == 'batu' || pilihan2 =='Batu')){
+
+        console.log ('Seimbang')
+
+    }else if ((pilihan1 == 'kertas' || pilihan1 == 'Kertas') && (pilihan2 == 'batu' || pilihan2 =='Batu')){
+        console.log ('Pemain 1 menang')
+    
+    }else if ((pilihan1 == 'kertas' || pilihan1=='Kertas') && (pilihan2 == 'gunting' || pilihan2 =='Gunting')){
+        
+        console.log('Pemain 2 menang')
+    }else if ((pilihan1 == 'kertas' || pilihan1=='Kertas') && (pilihan2 == 'kertas' || pilihan2 == 'Kertas')){
+
+        console.log ('Seimbang')
+
+    }else if ((pilihan1 == 'gunting' || pilihan1 == 'Gunting') && (pilihan2 == 'batu' || pilihan2 == 'Batu')){
+        console.log ('Pemain 2 menang')
+    
+    }else if ((pilihan1 == 'gunting' || pilihan1 == 'Gunting') && (pilihan2 == 'kertas' || pilihan2 == 'Kertas')){
+        
+        console.log('Pemain 1 menang')
+    }else if ((pilihan1 == 'gunting' || pilihan1 == 'Gunting') && (pilihan2 == 'gunting' || pilihan2 == 'Gunting')){
+
+        console.log ('Seimbang')
+
+    }else{
+        console.log('Anda Salah Input')
+    }
+
+
+} 
+batuKertas('batu','Kertas')

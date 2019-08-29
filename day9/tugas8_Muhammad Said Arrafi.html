@@ -1,0 +1,40 @@
+<script>
+var bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+
+var hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', `Jum'at`, 'Sabtu']
+var checkHari = false
+konfirmasi_cek = true
+var masukanHari = 0
+while(konfirmasi_cek = true){
+     
+     var tanggal = new Date(new Date().getTime()+(masukanHari*24*60*60*1000)); 
+     var day = tanggal.getDate()
+     var month = tanggal.getMonth()
+     var hariSekarang = tanggal.getDay(),
+     hariSekarang = hari[hariSekarang];
+     var yy = tanggal.getYear()
+     var year = (yy < 1000) ? yy + 1900 : yy
+     
+     if(masukanHari > 0){
+        if (masukanHari > 0 ){
+        var tahun = Math.floor(masukanHari / 360 )    
+            tahun_2 = masukanHari % 360   
+        var bulanBaru = Math.floor(tahun_2 / 30)
+            bulan_2= tahun_2 % 30
+        var hariBaru = bulan_2
+    //check_hari = true
+      
+      hasilTahun = masukanHari
+
+            var hasilTahun = alert(masukanHari+'Hari = '+tahun + "Tahun " + bulanBaru + "Bulan " + hariBaru + "Hari ")
+        }
+         alert(masukanHari+'Hari Selanjutnya =' +hariSekarang + ', '  + day + ' ' + bulan[month] + ' ' + year)
+         alert('terimakasih')
+         break
+         
+     }
+     masukanHari = prompt('Sekarang '+hariSekarang + ', '  + day + ' ' + bulan[month] + ' ' + year+ "\n Mau maju berapa hari ?")
+     
+    }
+    
+</script>

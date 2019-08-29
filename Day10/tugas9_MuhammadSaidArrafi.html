@@ -1,0 +1,80 @@
+<script>
+//sort string
+var sortString= (kata,ordering) => {
+var hasil = "";
+  var kataArr = kata.split("");
+    for ( var i = 0; i < ordering.length; i++) { 
+      while (kataArr.includes(ordering[i])) { 
+            hasil+= kataArr.splice(kataArr.indexOf(ordering[i]),1);
+      }
+    }
+  return hasil + kataArr.join("");
+  
+  }
+  
+  console.log(sortString("purwadhika", "ukha"))
+  console.log(sortString("string", "gnirts"))
+  console.log(sortString("banana", "abn"))
+
+//sort string 2
+const sortString_2 = (toSort, sortBy) => {
+    var hasi = ''
+    for (var i = 0 ; i < sortBy.length ; i++ ){
+        for (var j = 0 ; j < toSort.length ; i++){
+            if (sortBy == toSort [i]){
+                hasil += toSort[i]
+            }
+        }
+    }
+    return hasil 
+}
+console.log (sortString_2('banana','abn'))
+ // MAP
+var angka = [0,1,2,3,4,5,6,7,8,9]
+
+const kaliDua = (a) =>{
+    return a * 2
+}
+
+const duplicate = (angka, fungsi) =>{
+    var newArr =[]
+    for (var i =0; i<angka.length; i++){
+        newArr.push(fungsi(angka[i]))
+    }
+    return newArr
+}
+console.log (duplicate(angka,kaliDua))
+
+//reverse Word
+
+const reverseWord = (kata) =>{
+    console.log (kata.split('').reverse().join(''))
+}
+reverseWord('Aku pergi Ke Pasar')
+
+//like
+
+const suka = (like) =>{
+    for (var i = 0 ; i < like.length ; i++){
+        if (like[i] == 0){
+            console.log ('must be "no one likes this"')
+        }else if (like.length ==1){
+            console.log(`must be "${like[i]} likes this"`)
+        }else if (like.length ==2){
+            console.log(`must be "${like[i]} and ${like[i+1]} likes this"`)
+            break
+        }else if (like.length == 3){
+            console.log(`must be "${like[i]} , ${like[i+1]} and ${like[i+2]} likes this"`)
+            break
+        }else{
+            console.log(`must be "${like[i]} , ${like[i+1]} and ${like.length -2} others likes this"`)
+            break
+        }
+    }
+}
+suka([])
+suka(['petter'])
+suka(["Jacob", "Alex"])
+suka(["Max", "John", "Mark"])
+suka(["Alex", "Jacob", "Mark", "Max"])
+</script>
