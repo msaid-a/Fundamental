@@ -5,27 +5,39 @@ const find_short = (str) =>{
     for (let i = 0 ; i < strArray.length;i++){
         newArray.push(strArray[i].length)            
     }
-    newArray.sort(function(a,b){return a-b})
+    let hasilSort= newArray.sort(function(a,b){return a-b})
     console.log(newArray[0])
     }
     find_short('Many people get up early in the morning')// would return 2
-    find_short('Every office would getting newest monitor')// would return 5
-    find_short('Create new file after this morning')// would return 3
+    // find_short('Every office would getting newest monitor')// would return 5
+    // find_short('Create new file after this morning')// would return 3
 
     //2
     const persistence = (angka) =>{
-        
-        var i = 0
-        while(angka.toString().length > 1){
-            angka = angka.toString().split('')
-            angka = angka.reduce(function(a,b){return a*b})
-            i++
+    //with reduce       
+        // var i = 0
+        // while(angka.toString().length > 1){
+        //     angka = angka.toString().split('')
+        //     angka = angka.reduce(function(a,b){return a*b})
+        //     i++
+        // }
+        // return i
+    // no reduce
+    angka = angka.toString()
+    var total = 0
+        while(angka.length > 1){
+            var hasil = 1
+            for (var i = 0 ; i < angka.length ; i++){
+                hasil *= angka[i]
+            }
+            total++
+            angka = hasil.toString()
         }
-        return i
+        return total
     }
-    console.log(persistence(39))
-    console.log(persistence(999))
-    console.log(persistence(4))
+    console.log(persistence(24))
+    // console.log(persistence(999))
+    // console.log(persistence(4))
     
 //3
 const mutiple_table = (baris,kolom) =>{
@@ -57,3 +69,4 @@ const alpabhet_posisition = (kata) =>{
 
 }
 console.log (alpabhet_posisition(`'The sunset sets at twelve o' clock.'`))
+
