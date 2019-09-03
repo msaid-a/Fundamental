@@ -121,7 +121,6 @@ for (var i = baris ; i > 0 ; i--){
         }
     }
     out +='\n'
-    out +='\n'
 }
 console.log(out)
 
